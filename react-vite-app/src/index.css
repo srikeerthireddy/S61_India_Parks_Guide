@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+/* Login.css */
+.login-container {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2563eb;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .login-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .login-label {
+    font-weight: 500;
+    color: #4b5563;
+  }
+  
+  .login-input {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  .login-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+  
+  .login-button {
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .login-button:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+  }
+  
+  .login-register-prompt {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .login-register-prompt a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .login-register-prompt a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-error {
+    padding: 10px;
+    background-color: #fee2e2;
+    border: 1px solid #ef4444;
+    border-radius: 6px;
+    color: #b91c1c;
+    font-size: 14px;
+  }
+  
+  /* Logout.css */
+  .logout-container {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logout-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .logout-heading {
+    text-align: center;
+    color: #2563eb;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .logout-user-info {
+    padding: 15px;
+    background-color: #f3f4f6;
+    border-radius: 6px;
+    text-align: center;
+  }
+  
+  .logout-user-info p {
+    font-size: 16px;
+    color: #4b5563;
+  }
+  
+  .logout-button {
+    padding: 12px;
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-button:hover {
+    background-color: #dc2626;
+  }
+  
+  /* Register.css */
+  .register-container {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .register-heading {
+    text-align: center;
+    color: #2563eb;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .register-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .register-label {
+    font-weight: 500;
+    color: #4b5563;
+  }
+  
+  .register-input {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  .register-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+  
+  .register-button {
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .register-button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .register-button:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+  }
+  
+  .register-login-prompt {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .register-login-prompt a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .register-login-prompt a:hover {
+    text-decoration: underline;
+  }
+  
+  .register-error {
+    padding: 10px;
+    background-color: #fee2e2;
+    border: 1px solid #ef4444;
+    border-radius: 6px;
+    color: #b91c1c;
+    font-size: 14px;
+  }

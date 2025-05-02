@@ -1,58 +1,60 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import './Logout.css';
 
-function Logout() {
-    const [credentials, setCredentials] = useState({
-        username: "",
-        password: ""
-    });
+function Logout({ onLogout }) {
+  const navigate = useNavigate();
+  const username = Cookies.get('username') || 'User';
 
-    const handleChange = (e, field) => {
-        setCredentials({ ...credentials, [field]: e.target.value });
-    };
+  const handleLogout = async () => {
+    try {
+      const token = Cookies.get("token");
+      if (!token) {
+        console.log("User is not logged in.");
+        return;
+      }
+      
+      // Call logout API endpoint
+      await axios.post(
+        "https://s61-india-parks-guide-1.onrender.com/admin/logout",
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      
+      // Remove all authentication cookies
+      Cookies.remove("token");
+      Cookies.remove("username");
+      
+      // Update parent component state
+      onLogout();
+      
+      window.alert('Logged out successfully!');
+      navigate('/');
+    } catch (error) {
+      console.error("Logout error:", error);
+      // Even if the API call fails, remove cookies and log out locally
+      Cookies.remove("token");
+      Cookies.remove("username");
+      onLogout();
+      navigate('/');
+    }
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const token = Cookies.get("token"); // Retrieve the token from cookies
-            if (!token) {
-                console.log("User is not logged in.");
-                return;
-            }
-            
-            const response = await axios.post(
-                "https://s61-india-parks-guide-1.onrender.com/admin/logout",
-                {},
-                { headers: { Authorization: `Bearer ${token}` } } // Send token in the Authorization header
-            );
-            console.log("Response:", response.data);
-            
-            // Remove the token cookie upon successful logout
-            Cookies.remove("token");
-            console.log("Token removed.");
-            window.alert('Logout successful...!!!');
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    };
-    
-
-    return (
-        <div className="logout-container">
-            <h3 className="logout-heading">Log Out</h3>
-            <form className="logout-form" onSubmit={handleSubmit}>
-                <label className="logout-label">Username:</label>
-                <input className="logout-input" type="text" placeholder="Username" value={credentials.username} onChange={(e) => handleChange(e, "username")} />
-                <label className="logout-label">Password:</label>
-                <input className="logout-input" type="password" placeholder="Password" value={credentials.password} onChange={(e) => handleChange(e, "password")} />
-                <button className="logout-button" type="submit">Log Out</button>
-            </form>
-            <p>Already registered? <a href="/login">Sign in</a></p>
+  return (
+    <div className="logout-container">
+      <div className="logout-card">
+        <h2 className="logout-heading">Account</h2>
+        <div className="logout-user-info">
+          <p>Logged in as: <strong>{username}</strong></p>
         </div>
-    );
+        <button className="logout-button" onClick={handleLogout}>
+          Log Out
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default Logout;
